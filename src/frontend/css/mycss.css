@@ -1,0 +1,33 @@
+body {
+    background-color: lightblue;
+    background-image: url(../dolar.jpg);
+
+}
+
+h1 {
+	text-align: center;
+	letter-spacing: 4px;
+	color: white;
+	
+
+}
+h2 {
+	text-align: center;
+	letter-spacing: 3px;
+
+}
+h3{
+	color: white;
+	
+}
+
+p{
+	color: white;
+	
+}
+.footer{
+	position: absolut;
+	bottom: 0;
+	width:100%;
+	height: 60px;
+}

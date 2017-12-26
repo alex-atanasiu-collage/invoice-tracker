@@ -6,23 +6,81 @@
 	
 	<!-- linking css -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/mycss.css">
 
 	<!-- attaching scripts -->
 	<script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-	<h1> We help you to keep your expenses under control!  </h1>
-	<h2>Start now</h2>
+</br>
 
-	<script>
-		$.get("http://localhost:3000/hello")
-		 .done( 
-			function(data, status){
-				$("body").append("<p>" + data.notes + "</p>")
-			}
-		);
+<!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Invoice details</h4>
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
 
-	</script>
+<div class = "container">
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Invoice tracker</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Add Invoice</a></li>
+				<li><a href="#">View Reports</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	
+	<div class="jumbotron">
+		<h1>Invoice tracker</h1> 
+		<h2>We help you to keep your expenses under control</h2> 
+	</div>
+	<div class="row">
+		<div class="col-sm-4">
+			<h3>Invoice no. 
+			</br> from
+		</h3>
+		<p></p>
+		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">View details</button>
+	</div>
+	<div class="col-sm-4">
+		<h3>Titlu</h3>
+		<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">View details</button>
+	</div>  
+	<div class="col-sm-4">
+		<h3>Titlu</h3>
+		<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">View details</button>
+	</div>
+</div>
+</br>
+
+</div>
+</div>
+
+<div>
+
+</div>	
 </body>
 </html>
