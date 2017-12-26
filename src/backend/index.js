@@ -8,8 +8,15 @@ app.use(function(req, res, next) {
   next();
 
 })
+
+app.get('/', function(req, res) {
+  res.json({notes: "Root mapping"})
+});
+
 app.get('/hello', function(req, res) {
   res.json({notes: "Hello, World, from API!"})
 });
+
+
 
 app.listen(3000);
