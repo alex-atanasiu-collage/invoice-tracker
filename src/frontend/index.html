@@ -13,6 +13,7 @@
 </head>
 <body>
 	<h1> Hello World </h1>
+	
 	<script>
 		$.get("http://localhost:3000/hello")
 		 .done( 
@@ -20,6 +21,7 @@
 				$("body").append("<p>" + data.notes + "</p>")
 			}
 		);
+
 	</script>
 </body>
 </html>
