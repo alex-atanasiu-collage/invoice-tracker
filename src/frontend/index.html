@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- attaching scripts -->
+	<title>Invoice Tracker</title>
+	
+	<!-- linking css -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- attaching scripts -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+	<h1> Hello World </h1>
+	<script>
+		$.get("http://localhost:3000/hello")
+		 .done( 
+			function(data, status){
+				$("body").append("<p>" + data.notes + "</p>")
+			}
+		);
+	</script>
+</body>
+</html>
