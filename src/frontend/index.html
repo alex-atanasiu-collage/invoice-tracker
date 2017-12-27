@@ -6,20 +6,144 @@
 	
 	<!-- linking css -->
 	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/mycss.css">
 
 	<!-- attaching scripts -->
 	<script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-	<h1> Hello World </h1>
-	<script>
-		$.get("http://localhost:3000/hello")
-		 .done( 
-			function(data, status){
-				$("body").append("<p>" + data.notes + "</p>")
-			}
-		);
-	</script>
+</br>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Invoice details</h4>
+			</div>
+			<div class="modal-body">
+				<p>Some text in the modal.</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+<div class = "container">
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Invoice tracker</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+<<<<<<< HEAD
+				<li><a href="addinvoice.html">Add Invoice</a></li>
+				<li><a href="#">View Reports</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	
+	<div class="jumbotron">
+		<h1>Invoice tracker</h1> 
+		<h2>We help you to keep your expenses under control</h2> 
+	</div>
+	<div class="row">
+		<div class="col-sm-4">
+			<h3>INVOICE</h3>
+				<h4>Date: 27/12/2017 </h4>
+				<h4>Invoice no: 5552268 </h4>
+				<h4>Customer ID: AF65225TH </h4>
+			<p></p>
+			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">View details</button>
+		</div>
+		<div class="col-sm-4">
+			<h3>INVOICE</h3>
+				<h4>Date: 27/12/2017 </h4>
+				<h4>Invoice no: 5552268 </h4>
+				<h4>Customer ID: AF65225TH </h4>
+				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">View details</button>
+			</div>  
+			<div class="col-sm-4">
+			<h3>INVOICE</h3>
+				<h4>Date: 27/12/2017 </h4>
+				<h4>Invoice no: 5552268 </h4>
+				<h4>Customer ID: AF65225TH </h4>
+				<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">View details</button>
+			</div>
+		</div>
+	</br>
+	<hr>
+
+	
+
+
+
+</div>
+=======
+				<li><a href="#">Add Invoice</a></li>
+				<li><a href="#">View Reports</a></li>
+			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Hello, [INSERT USERNAME]</a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	
+	<div class="jumbotron">
+		<h1>Invoice tracker</h1> 
+		<h2>We help you to keep your expenses under control</h2> 
+	</div>
+	<div class="row">
+		<div class="col-sm-4">
+			<h3>Invoice no. </br>from</h3>
+			<p></p>
+			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">View details</button>
+		</div>
+		<div class="col-sm-4">
+			<h3>Titlu</h3>
+			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">View details</button>
+		</div>  
+		<div class="col-sm-4">
+			<h3>Titlu</h3>
+			<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.</p>
+			<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">View details</button>
+		</div>
+	</div>
+	</br>
+
+	</div>
+>>>>>>> 262d150853ee4519075e02e2157ce5796be976cf
+</div>
+
+<div>
+
+</div>	
+<<<<<<< HEAD
+=======
+
+<script>
+	$(document).ready(function(){
+		var logged = true; // placeholder for login
+		if(!logged){
+			window.location.replace("login.html");
+		}
+	});
+
+</script>
+
+>>>>>>> 262d150853ee4519075e02e2157ce5796be976cf
 </body>
 </html>
