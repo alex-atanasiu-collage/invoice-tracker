@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- attaching scripts -->
+	<title>Invoice Tracker</title>
+	
+	<!-- linking css -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/mycss.css">
+
+	<!-- attaching scripts -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/myjs.js"></script>
+
+</head>
+<body>
+</br>
+
+<!-- Modal -->
+
+<div class = "container">
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Invoice tracker</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li ><a href="index.html">Home</a></li>
+				<li class="active"><a href="addinvoice.html">Add Invoice</a></li>
+				<li><a href="#">View Reports</a></li>
+			</ul>
+		</div>
+	</nav>
+<div class="col-sm-6">
+	<h2> FROM </h2>
+	<form>
+		<div class="form-group">
+			<label for="companyname">Company name:</label>
+			<input type="text" class="form-control" id="companyname">
+		</div>
+		<div class="form-group">
+			<label for="address">Address:</label>
+			<input type="address" class="form-control" id="address">
+		</div>
+		<div class="form-group">
+			<label for="phone">Phone:</label>
+			<input type="phone" class="form-control" id="phone">
+		</div>
+		<div class="form-group">
+			<label for="email">E-mail:</label>
+			<input type="email" class="form-control" id="email">
+		</div>
+	</form>
+	<h2> BILL TO </h2>
+	<form>
+		<div class="form-group">
+			<label for="companyname">Company name:</label>
+			<input type="text" class="form-control" id="companyname">
+		</div>
+		<div class="form-group">
+			<label for="address">Address:</label>
+			<input type="address" class="form-control" id="address">
+		</div>
+		<div class="form-group">
+			<label for="phone">Phone:</label>
+			<input type="phone" class="form-control" id="phone">
+		</div>
+		<div class="form-group">
+			<label for="email">E-mail:</label>
+			<input type="email" class="form-control" id="email">
+		</div>
+	</form>
+</div>
+<div class="col-sm-6">
+	<h2> INVOICE </h2>
+	<form>
+		<div class="form-group">
+			<label for="date">Date:</label>
+			<input type="text" class="form-control" id="date">
+
+		</div>
+		<div class="form-group">
+			<label for="number">Invoice no:</label>
+			<input type="text" class="form-control" id="number">
+
+		</div>
+	</form>
+
+
+	</div>
+	
+		<table class="table">
+		<button class ="btn" id="insert-more"> Add New Row </button>
+		<thead>
+			<tr>
+				<th>Product</th>
+				<th>Quantity</th>
+				<th>Unit price</th>
+				<th>Item total</th>
+
+			</tr>
+		</thead>
+		<tbody>
+			  <tr>
+                <td><input type="text" id="product" name="product"></td>
+                <td><input type="text" id="quantity" name="quantity"></td>
+                <td><input type="text" id="unitprice" name="unitprice"></td>
+                <td> <p>total</p></td>
+            </tr>
+		</tbody>
+	</table>
+
+    <br>
+
+</div>
+</div>
+
+<div>
+
+</div>	
+</body>
+</html>

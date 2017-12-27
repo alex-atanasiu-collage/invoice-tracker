@@ -15,6 +15,10 @@ h2 {
 	text-align: center;
 	letter-spacing: 3px;
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 262d150853ee4519075e02e2157ce5796be976cf
 }
 h3{
 	color: white;
@@ -30,4 +34,42 @@ p{
 	bottom: 0;
 	width:100%;
 	height: 60px;
+<<<<<<< HEAD
+}
+h4{
+	color:white;
+}
+
+.button {
+    position: absolute;
+}
+.col-sm-6 h2{
+	color: white;
+}
+.form-group {
+	color: white;
+}
+.well{
+	text-align: center;
+}
+.well h1{
+	color: black;
+}	
+
+.table{
+	color: white;
+}
+#quantity{
+	color:black;
+}
+#unitprice{
+	color:black;
+}
+#product{
+	color:black;
+}
+th{
+	text-align: auto;
+=======
+>>>>>>> 262d150853ee4519075e02e2157ce5796be976cf
 }
