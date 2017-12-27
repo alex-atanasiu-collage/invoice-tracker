@@ -9,6 +9,11 @@
   "author": "Iulia Pieptea",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2"
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "firebase": "^4.8.1",
+    "firebase-admin": "^5.6.0",
+    "randomstring": "^1.1.5"
   }
 }
