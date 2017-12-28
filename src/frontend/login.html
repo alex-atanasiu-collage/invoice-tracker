@@ -22,15 +22,16 @@
         <form action="" id="loginForm">
           <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input class="form-control" type="text" name='username' placeholder="username"/>          
+            <input class="form-control" type="text" name='username' placeholder="username" id="usernamefield"/>          
           </div>
           <div class="form-group input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input class="form-control" type="password" name='password' placeholder="password"/>     
+            <input class="form-control" type="password" name='password' placeholder="password" id="passwordfield"/>     
           </div>
           <div class="form-group">
-            <button type="button" class="btn btn-primary btn-def btn-block">Login</button>
+            <button type="button" class="btn btn-primary btn-def btn-block" id="submit-login">Login</button>
           </div>
+          <div class="alert alert-danger" id="errorbox" style="display: none"><strong>ERROR: </strong><span id="errorfield"></span></div>
           <!--<div class="form-group text-center">
             <a href="#">Forgot Password</a>&nbsp;|&nbsp;<a href="#">Support</a>
           </div>-->
@@ -42,8 +43,28 @@
 
 <script>
   $(document).ready(function(){
+    if(document.cookie === 'loggedin'){
+      window.location.replace("index.html");
+    }
     $("#logingroup").fadeIn(1200, function(){});
+
+    $("#submit-login").click(function(){
+      var usr = $("#usernamefield").val();
+      var pass = $("#passwordfield").val();
+
+      $.post('http://localhost:3000/login', { user : usr, password : pass }, function(data, status){
+        if(data.loggedIn){
+          document.cookie = "loggedin";
+          window.location.replace("index.html");
+        } else {
+          //alert("Login failed");
+          $('#errorfield').text(data.error);
+          $('#errorbox').fadeIn(1000, function(){});
+        }
+      });
+    });
   });
+
 </script>
 
 </body>

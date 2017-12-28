@@ -49,7 +49,6 @@
 			</ul>
 
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Hello, [INSERT USERNAME]</a></li>
 				<li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
 			</ul>			
 		</div>
@@ -87,17 +86,5 @@
 </br>
 <hr>
 </div>
-
-<script>
-	$(document).ready(function(){
-		$.get("http://localhost:3000/checkLogin", function(data, status){
-        	var logged = data.isLogged; // placeholder for login
-        	if(!logged){
-				//alert("You are not logged");
-				window.location.replace("login.html");
-			}
-		});
-	});
-</script>
 </body>
 </html>

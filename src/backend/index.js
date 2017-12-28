@@ -52,70 +52,18 @@ expressApp.use(function(req, res, next) {
 	next();
 })
 
-
 // ========================= api calls =========================
 expressApp.get('/application', function(req, res) {
-	// private api, only for logged in
-	if(!checkLogin(req.session)){
-		res.status(403);
-		res.json({applicationData: null});
-		return;
-	}
-
 	res.json({applicationData: appData});
 });
 
 expressApp.get('/users', function(req, res) {
-	if(!checkLogin(req.session)){
-		res.status(403);
-		res.json({applicationData: null});
-		return;
-	}
 	res.json({users: userList});
 });
 
 expressApp.get('/session', function(req, res) {
-	if(!checkLogin(req.session)){
-		res.status(403);
-		res.json({applicationData: null});
-		return;
-	}
-
 	res.json({users: req.session});
 });
-
-
-expressApp.post('/login', function(req, res) {
-	if(!req.body.user || !req.body.password){
-		res.json({loggedIn: false, error: 'No user/pass combination in body!'});
-		return;	
-	}
-
-	if(userList[req.body.user]){
-		if(userList[req.body.user].password == req.body.password){
-			req.session.user = req.body.user;
-			req.session.loggedIn = true;
-
-			res.json({loggedIn: true, error: null});
-		} else {
-			res.json({loggedIn: false, error: 'Invalid password!'});
-		}
-	} else {
-		res.json({loggedIn: false, error: 'No such username!'});
-	}
-});
-
-expressApp.post('/logout', function(req, res) {
-	req.session.user = null;
-	req.session.loggedIn = false;
-
-	res.json({message: 'Logout succeed!'});
-});
-
-expressApp.get('/checkLogin', function(req, res) {
-	res.json({isLogged: req.session.loggedIn ? true : false});
-});
-
 
 expressApp.get('/invoice/:invoiceid', function(req, res) {
 	// check login

@@ -30,7 +30,7 @@
 			</ul>
 		</div>
 	</nav>
-	<h2 id= "details"> Reports</h2>
+	<h2 id="details">Reports</h2>
 	<br>
 	<table class="table table-hover">
 		<thead>
@@ -55,16 +55,5 @@
 				</td>
 			</tr>
 		</div>	
-		<script>
-			$(document).ready(function(){
-				$.get("http://localhost:3000/checkLogin", function(data, status){
-        	var logged = data.isLogged; // placeholder for login
-        	if(!logged){
-				//alert("You are not logged");
-				window.location.replace("login.html");
-			}
-		});
-			});
-		</script>
 	</body>
 	</html>
