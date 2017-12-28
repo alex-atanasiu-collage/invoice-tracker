@@ -13,13 +13,14 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/myjs.js"></script>
 	<script src="js/vue.min.js"></script>
+	<script src="js/addinvoice.js"></script>
 </head>
 <body>
 </br>
 
 <!-- Modal -->
 
-<div class = "container">
+<div class = "container" id=appshow>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -39,12 +40,12 @@
 			<form>
 				<div class="form-group">
 					<label for="date">Date:</label>
-					<input type="text" class="form-control" id="date">
+					<input type="text" class="form-control" id="date" v-model="generatedInvoice.Date">
 
 				</div>
 				<div class="form-group">
 					<label for="number">Invoice no:</label>
-					<input type="text" class="form-control" id="number">
+					<input type="text" class="form-control" id="number" v-model="generatedInvoice.InvoiceNumber">
 
 				</div>
 			</form>
@@ -54,11 +55,11 @@
 			<form>
 				<div class="form-group">
 					<label for="totalpayment">Total payment:</label>
-					<input type="text" class="form-control" id="totalpayment">
+					<input type="text" class="form-control" id="totalpayment" v-model="generatedInvoice.PaymentData.TotalPayment">
 				</div>
 				<div class="form-group">
 					<label for="currency">Currency:</label>
-					<select class="form-control">
+					<select class="form-control" v-model="generatedInvoice.PaymentData.Currency">
 						<option>EUR</option>
 						<option>RON</option>
 						<option>USD</option>
@@ -66,7 +67,7 @@
 				</div>
 				<div class="form-group">
 					<label for="paymentmethod">Payment method:</label>
-					<select class="form-control">
+					<select class="form-control" v-model="generatedInvoice.PaymentData.PaymentMethod">
 						<option>Cash at delivery</option>
 						<option>Card at delivery</option>
 						<option>Bank transfer</option>
@@ -80,19 +81,19 @@
 			<form>
 				<div class="form-group">
 					<label for="companyname">Company name:</label>
-					<input type="text" class="form-control" id="companyname">
+					<input type="text" class="form-control" id="companyname" v-model="generatedInvoice.From.CompanyName">
 				</div>
 				<div class="form-group">
 					<label for="address">Address:</label>
-					<input type="address" class="form-control" id="address">
+					<input type="address" class="form-control" id="address" v-model="generatedInvoice.From.Address">
 				</div>
 				<div class="form-group">
 					<label for="phone">Phone:</label>
-					<input type="phone" class="form-control" id="phone">
+					<input type="phone" class="form-control" id="phone"  v-model="generatedInvoice.From.Phone">
 				</div>
 				<div class="form-group">
 					<label for="email">E-mail:</label>
-					<input type="email" class="form-control" id="email">
+					<input type="email" class="form-control" id="email"  v-model="generatedInvoice.From.Email">
 				</div>
 			</form>
 
@@ -103,25 +104,29 @@
 			<form>
 				<div class="form-group">
 					<label for="companyname">Company name:</label>
-					<input type="text" class="form-control" id="companyname">
+					<input type="text" class="form-control" id="companyname"  v-model="generatedInvoice.BillTo.CompanyName">
 				</div>
 				<div class="form-group">
 					<label for="address">Address:</label>
-					<input type="address" class="form-control" id="address">
+					<input type="address" class="form-control" id="address"  v-model="generatedInvoice.BillTo.Address">
 				</div>
 				<div class="form-group">
 					<label for="phone">Phone:</label>
-					<input type="phone" class="form-control" id="phone">
+					<input type="phone" class="form-control" id="phone" v-model="generatedInvoice.BillTo.Phone">
 				</div>
 				<div class="form-group">
 					<label for="email">E-mail:</label>
-					<input type="email" class="form-control" id="email">
+					<input type="email" class="form-control" id="email" v-model="generatedInvoice.BillTo.Email">
 				</div>
 			</form>
 		</div>
 	</div>
 </br>
-<button type="button" class="btn btn-primary btn-block">Submit invoice</button>
+<button type="button" class="btn btn-primary btn-block" v-on:click="clickSubmit(generatedInvoice)">Submit invoice</button>
+</br>
+<div class="alert alert-success" id="successalert" style="display: none">
+  <strong>Success!</strong> The invoice has been added!
+</div>
 </div>	
 
 </body>

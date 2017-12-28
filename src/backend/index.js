@@ -68,12 +68,14 @@ expressApp.get('/session', function(req, res) {
 expressApp.get('/invoice/:invoiceid', function(req, res) {
 	var invoiceId = req.params.invoiceid; // given by param
 
+	// get from database the invoice (if any) that has the invoiceid given as url param
 	return database.ref('/Invoices/' + invoiceId).once('value').then(function(snapshot) {
   		res.json(snapshot.val());
 	});
 });
 
 expressApp.get('/invoices', function(req, res) {
+	// get all the invoices from the database
 	return database.ref('/Invoices/').once('value').then(function(snapshot) {
   		res.json(snapshot.val());
 	});
@@ -82,12 +84,23 @@ expressApp.get('/invoices', function(req, res) {
 
 expressApp.post('/addinvoice', function(req, res) {
 	var invoice = req.body.invoice;
-
-	// TODO add via firebase the invoice
-
-	// TODO add add status
+	console.log("Invoice Number:" + invoice.InvoiceNumber);
+	// adding under Invoices/invoiceid the object hold in var invoice
+	database.ref('/Invoices/' + invoice.InvoiceNumber).set(invoice);
+	
 	res.json(null);
 });
+
+expressApp.get('/removeinvoice/:invoiceid', function(req, res) {
+	var invoiceId = req.params.invoiceid; // given by param
+
+	// get from database the invoice (if any) that has the invoiceid given as url param
+	database.ref('/Invoices/' + invoiceId).remove();
+
+	res.json(null);
+});
+
+
 
 
 function checkLogin(session){
