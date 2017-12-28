@@ -66,42 +66,21 @@ expressApp.get('/session', function(req, res) {
 });
 
 expressApp.get('/invoice/:invoiceid', function(req, res) {
-	// check login
-	if(!checkLogin(req.session)){
-		res.status(403);
-		res.json({applicationData: null});
-		return;
-	}
-
 	var invoiceId = req.params.invoiceid; // given by param
 
-	// TODO look after object in firebase
-
-	// TODO put result in res or null if there aren't any
-	res.json(null);
+	return database.ref('/Invoices/' + invoiceId).once('value').then(function(snapshot) {
+  		res.json(snapshot.val());
+	});
 });
 
 expressApp.get('/invoices', function(req, res) {
-	// check login
-	if(!checkLogin(req.session)){
-		res.status(403);
-		res.json({applicationData: null});
-		return;
-	}
-
-	// TODO get all invoices from firebase and return them
-	res.json(null);
+	return database.ref('/Invoices/').once('value').then(function(snapshot) {
+  		res.json(snapshot.val());
+	});
 });
 
 
 expressApp.post('/addinvoice', function(req, res) {
-	// check login
-	if(!checkLogin(req.session)){
-		res.status(403);
-		res.json({applicationData: null});
-		return;
-	}
-
 	var invoice = req.body.invoice;
 
 	// TODO add via firebase the invoice

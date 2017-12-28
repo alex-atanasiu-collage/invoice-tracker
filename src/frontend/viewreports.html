@@ -11,13 +11,53 @@
 	<!-- attaching scripts -->
 	<script src="js/jquery-3.2.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/vue.min.js"></script>
+	<script src="js/viewreports.js"></script>
 </head>
-<body>
+<body >
 </br>
 
+<div class = "container" id="appshow">
 <!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog" v-model="currentInvoice">
+  <div class="modal-dialog">
 
-<div class = "container">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 style="color: black" class="modal-title">Invoice no {{ currentInvoice.InvoiceNumber }} details</h4>
+      </div>
+      <div class="modal-body">
+		<h4 style="color: black"> <strong>Date:</strong> {{ new Date(currentInvoice.Date).toDateString() }}</h4>
+		<h4 style="color: black"> <strong>Total payment:</strong> {{ currentInvoice.PaymentData.TotalPayment }} {{ currentInvoice.PaymentData.Currency }}</h4>
+		<h4 style="color: black"> <strong>Payment method:</strong> {{ currentInvoice.PaymentData.PaymentMethod }} </h4>
+		<div class="row">
+		<div class="col-sm-6">
+      	<h4 style="color: black"> <strong>From</strong></h4>
+      		<p style="color: black"> <strong>Company name:</strong> {{ currentInvoice.From.CompanyName }}</p>
+      		<p style="color: black"> <strong>Address:</strong> {{ currentInvoice.From.Address }}</p>
+      		<p style="color: black"> <strong>Phone: </strong> {{ currentInvoice.From.Phone }}</p>
+      		<p style="color: black"> <strong>Email:</strong> {{ currentInvoice.From.Email }}</p>
+      	</div>
+      	<div class="col-sm-6">
+      	<h4 style="color: black"> <strong>Bill to</strong></h4>
+      		<p style="color: black"> <strong>Company name:</strong> {{ currentInvoice.BillTo.CompanyName }}</p>
+      		<p style="color: black"> <strong>Address:</strong> {{ currentInvoice.BillTo.Address }}</p>
+      		<p style="color: black"> <strong>Phone: </strong> {{ currentInvoice.BillTo.Phone }}</p>
+      		<p style="color: black"> <strong>Email:</strong> {{ currentInvoice.BillTo.Email }}</p>
+      	</div>
+      	</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -43,15 +83,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>John</td>
-				<td>Doe</td>
-				<td>john@example.com</td>
-				<td>Doe</td>
+			<tr v-for="invoice in invoices">
+				<td> {{ new Date(invoice.Date).toDateString() }}</td>
+				<td> {{ invoice.InvoiceNumber }}</td>
+				<td> {{ invoice.From.CompanyName }} </td>
+				<td> {{ invoice.BillTo.CompanyName }} </td>
 				<td>
-					 <button type="button" class="btn btn-success">View the invoice</button>
-					 <button type="button" class="btn btn-success">Edit invoice</button>
-					  <button type="button" class="btn btn-danger">Delete invoice</button>
+					<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal" v-on:click="currentInvoice = invoice">View the invoice</button>
+					<button type="button" class="btn btn-success">Edit invoice</button>
+					<button type="button" class="btn btn-danger">Delete invoice</button>
 				</td>
 			</tr>
 		</div>	
