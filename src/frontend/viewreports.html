@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- attaching scripts -->
+	<title>Invoice Tracker</title>
+	
+	<!-- linking css -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/mycss.css">
+
+	<!-- attaching scripts -->
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</head>
+<body>
+</br>
+
+<!-- Modal -->
+
+<div class = "container">
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Invoice tracker</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li ><a href="index.html">Home</a></li>
+				<li ><a href="addinvoice.html">Add Invoice</a></li>
+				<li class="active"><a href="#">View Reports</a></li>
+			</ul>
+		</div>
+	</nav>
+	<h2 id= "details"> Reports</h2>
+	<br>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Ivoice no.</th>
+				<th>From</th>
+				<th>Bill to</th>
+				<th>More details</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>John</td>
+				<td>Doe</td>
+				<td>john@example.com</td>
+				<td>Doe</td>
+				<td>
+					 <button type="button" class="btn btn-success">View the invoice</button>
+					 <button type="button" class="btn btn-success">Edit invoice</button>
+					  <button type="button" class="btn btn-danger">Delete invoice</button>
+				</td>
+			</tr>
+		</div>	
+		<script>
+			$(document).ready(function(){
+				$.get("http://localhost:3000/checkLogin", function(data, status){
+        	var logged = data.isLogged; // placeholder for login
+        	if(!logged){
+				//alert("You are not logged");
+				window.location.replace("login.html");
+			}
+		});
+			});
+		</script>
+	</body>
+	</html>
